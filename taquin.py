@@ -1,6 +1,16 @@
 import tkinter
 from tkinter import *
 
+mainapp = Tk() #create window
+mainapp.geometry('1280x720+300+150') #n7ot el settings toul ou 3ordh (+300+150 bech tji fel wost)
+# #forced window size
+mainapp.minsize(1280,720)
+mainapp.maxsize(1920,1080)
+#end forced window size
+mainapp.title('Hafhouf Jobs System V1.0')
+mainapp.configure(bg='#00ccff')#background color
+mainapp.iconbitmap(r'hafhouf.ico')
+
 class taquin:
   initial_state = [[3,2,7],[8,6,0],[1,5,4]]
   final_state = [[1,2,3],[8,0,4],[7,6,5]]
