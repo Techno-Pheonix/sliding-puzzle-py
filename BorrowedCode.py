@@ -7,7 +7,7 @@ def permuter (t, c1, c2):
   return t
 def transitions(t):
   tab=[]
-  x,y=position_case_vide(t)
+  x,y = position_case_vide(t)
   l=[]
   if(x-1>=0):
     l.append(((x-1),y))
