@@ -20,7 +20,7 @@ class Recherche_menu:
         LogIn.state("zoomed")
 
         LogIn['bg'] = '#000033'
-        label = Label(LogIn, text="Select recherche method",
+        label = Label(LogIn, text="Select search method",
                       font=("Helvetica", 32), bg="#000033", fg="white")
         label.pack(pady=80)
 
@@ -32,15 +32,15 @@ class Recherche_menu:
         style.configure('BW1.TButton', forground="bleu", padding=10,
                         height=20, width=30, font=("Helvetica", 16))
 
-        Btn1 = ttk.Button(LogIn, text="Recherche profendeur",
+        Btn1 = ttk.Button(LogIn, text="Depth first search",
                           style="BW1.TButton", command=lambda: self.dfs(LogIn))
         Btn1.pack(pady=30)
 
-        Btn2 = ttk.Button(LogIn, text="Recherche largeur", style="BW1.TButton",
+        Btn2 = ttk.Button(LogIn, text="Breadth first search", style="BW1.TButton",
                           command=lambda: firstBtnClick(LogIn, "Users"))
         Btn2.pack(pady=30)
 
-        Btn3 = ttk.Button(LogIn, text="Recherche A*",
+        Btn3 = ttk.Button(LogIn, text="A * search",
                           style="BW1.TButton", command=lambda: Quit(LogIn))
         Btn3.pack(pady=30)
 
