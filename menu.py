@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 
-from dfs import *
+
 
 
 class Recherche_menu:
@@ -40,8 +40,7 @@ class Recherche_menu:
                           command=lambda: firstBtnClick(LogIn, "Users"))
         Btn2.pack(pady=30)
 
-        Btn3 = ttk.Button(LogIn, text="A * search",
-                          style="BW1.TButton", command=lambda: Quit(LogIn))
+        Btn3 = ttk.Button(LogIn, text="A * search",style="BW1.TButton")
         Btn3.pack(pady=30)
 
 
