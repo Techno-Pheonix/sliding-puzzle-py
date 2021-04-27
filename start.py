@@ -8,24 +8,29 @@ from menu import *
 class Taquin_etat_init:
 
     def __init__(self):
-        self.labels = []
+        self.Entry = []
+        #haffa testing something 
+        self.Entry = []
+
+        #end haffa 
+
         self.white_index = 8
         self.rendertaquin()
 
-    def taquin_randomize(self, labels):
+    def taquin_randomize(self, Entry):
         # possible values
         nbrs = [1, 2, 3, 4, 5, 6, 7, 8]
         # index of nbr
         i = 0
         # remove white fg from previous hidden taquin case
-        labels[self.white_index]["fg"] = "black"
+        Entry[self.white_index]["fg"] = "black"
         # create a new one hidden taquin case
         white_label = randrange(9)
         self.white_index = white_label
-        labels[white_label]["fg"] = "white"
-        labels[white_label]["text"] = "0"
+        Entry[white_label]["fg"] = "white"
+        Entry[white_label]["text"] = "0"
 
-        for label in labels:
+        for label in Entry:
             if (label["fg"] != "white"):
                 indx = randrange(len(nbrs))
                 i = i+1
@@ -38,10 +43,16 @@ class Taquin_etat_init:
         label.grid(row=rowVal, column=colVal, padx=3, pady=3)
         return label
 
+    #create field (haffa) 
+    def create_field(self,frame,rowVal,colVal,val,textcol="black"):
+        e = Text(frame,font=("Helvetica", 40), height = 2,width = 4, bg = "white")
+        e.grid(row=rowVal,column=colVal,padx=3,pady=3)
+        return e 
+
     def get_label_text(self):
         text = []
-        for label in self.labels:
-            text.append((label["text"], label["fg"]))
+        for label in self.Entry:
+            text.append(Text)
         return text
 
     def quit(self, window):
@@ -61,11 +72,11 @@ class Taquin_etat_init:
         mainFrame.place(relx=.5, rely=.5, anchor="c")
 
         # hello text
-        label = Label(mainFrame, text="Welcome to the tquin game",
+        label = Label(mainFrame, text="Welcome to the sliding puzzle game",
                       font=("Helvetica", 32), bg="#000033", fg="white")
         label.pack(pady=10)
 
-        label = Label(mainFrame, text="Choose taquin init state",
+        label = Label(mainFrame, text="Choose the init state",
                       font=("Helvetica", 24), bg="#000033", fg="white")
         label.pack(pady=10)
 
@@ -73,16 +84,17 @@ class Taquin_etat_init:
         taquin_frame = Frame(mainFrame, bg="#000033")
         taquin_frame.pack()
 
-        # the labels of taquin game
-        self.labels.append(self.create_label(taquin_frame, 0, 0, 1))
-        self.labels.append(self.create_label(taquin_frame, 0, 1, 2))
-        self.labels.append(self.create_label(taquin_frame, 0, 2, 3))
-        self.labels.append(self.create_label(taquin_frame, 1, 0, 4))
-        self.labels.append(self.create_label(taquin_frame, 1, 1, 5))
-        self.labels.append(self.create_label(taquin_frame, 1, 2, 6))
-        self.labels.append(self.create_label(taquin_frame, 2, 0, 7))
-        self.labels.append(self.create_label(taquin_frame, 2, 1, 8))
-        self.labels.append(self.create_label(taquin_frame, 2, 2, 0, "white"))
+        # the Entry of taquin game
+        #self.Entry.append(self.create_label(taquin_frame, 0, 0, 1))
+        self.Entry.append(self.create_field(taquin_frame,0,0,1))
+        self.Entry.append(self.create_field(taquin_frame, 0, 1, 2))
+        self.Entry.append(self.create_field(taquin_frame, 0, 2, 3))
+        self.Entry.append(self.create_field(taquin_frame, 1, 0, 4))
+        self.Entry.append(self.create_field(taquin_frame, 1, 1, 5))
+        self.Entry.append(self.create_field(taquin_frame, 1, 2, 6))
+        self.Entry.append(self.create_field(taquin_frame, 2, 0, 7))
+        self.Entry.append(self.create_field(taquin_frame, 2, 1, 8))
+        self.Entry.append(self.create_field(taquin_frame, 2, 2, 0, "white"))
 
         # some btn dope style
         style = ttk.Style()
@@ -95,7 +107,7 @@ class Taquin_etat_init:
         # the btn of randome
         btn_rand = ttk.Button(btn_frame, text="Randomize", style="BW1.TButton",
                               command=lambda:
-                              self.taquin_randomize(self.labels))
+                              self.taquin_randomize(self.Entry))
         btn_rand.grid(row=0, column=0, padx=5)
 
         # the btn of of search methode
