@@ -44,4 +44,5 @@ class Recherche_menu:
                           style="BW1.TButton", command=lambda: Quit(LogIn))
         Btn3.pack(pady=30)
 
+
         LogIn.mainloop()
