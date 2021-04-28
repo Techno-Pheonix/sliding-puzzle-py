@@ -10,11 +10,7 @@ class Recherche_menu:
 
     def dfs(self, window):
         window.destroy()
-        x = scrollFrame()
-
-      
-      
-        
+        x = scrollFrame(self.taquin_init_labels)
 
     def fn(self):
         LogIn = Tk()
@@ -43,8 +39,7 @@ class Recherche_menu:
                           command=lambda: firstBtnClick(LogIn, "Users"))
         Btn2.pack(pady=30)
 
-        Btn3 = ttk.Button(LogIn, text="A * search",style="BW1.TButton")
+        Btn3 = ttk.Button(LogIn, text="A * search", style="BW1.TButton")
         Btn3.pack(pady=30)
-
 
         LogIn.mainloop()

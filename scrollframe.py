@@ -4,7 +4,9 @@ from tkinter import ttk
 
 class scrollFrame:
 
-    def __init__(self):
+    def __init__(self, taquin_init_labels):
+        self.x = taquin_init_labels
+        print(self.x)
         self.render()
 
     def create_label(self, frame, rowVal, colVal, val, textCol="black"):
