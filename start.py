@@ -8,11 +8,11 @@ from menu import *
 class Taquin_etat_init:
 
     def __init__(self):
-        self.Entry = []
-        #haffa testing something 
+        self.entrys = []
+        # haffa testing something
         self.Entry = []
 
-        #end haffa 
+        # end haffa
 
         self.white_index = 8
         self.rendertaquin()
@@ -43,20 +43,33 @@ class Taquin_etat_init:
         label.grid(row=rowVal, column=colVal, padx=3, pady=3)
         return label
 
-    #create field (haffa) 
-    def create_field(self,frame,rowVal,colVal,val,textcol="black"):
-        e = Text(frame,font=("Helvetica", 40), height = 2,width = 4, bg = "white")
-        e.grid(row=rowVal,column=colVal,padx=3,pady=3)
-        return e 
+    # create field (haffa)
+    def create_field(self, frame, rowVal, colVal):
+        e = Text(frame, font=("Helvetica", 40), height=2, width=4, bg="white")
+        e.grid(row=rowVal, column=colVal, padx=3, pady=3)
+        return e
+
+    def render_taquin(self, frame, Label_text):
+        for x in range(9):
+            self.entrys.append(self.create_field(frame, x//3, x % 3))
+        label = Label(frame, text=Label_text,
+                      font=("Helvetica", 24), bg="#000033", fg="white")
+        label.grid(column=1, row=3)
 
     def get_label_text(self):
-        text = []
-        for label in self.Entry:
-            text.append(Text)
-        return text
+        text_init = []
+        text_final = []
+        i = 0
+        for label in self.entrys:
+            if (i < 9):
+                text_init.append(label.get("1.0", "end-1c"))
+            else:
+                text_final.append(label.get("1.0", "end-1c"))
+        return (text_init, text_final)
 
     def quit(self, window):
         text = self.get_label_text()
+        print(text)
         window.destroy()
         x = Recherche_menu(text)
 
@@ -81,20 +94,18 @@ class Taquin_etat_init:
         label.pack(pady=10)
 
         # the frame which contains the grid of taquin
-        taquin_frame = Frame(mainFrame, bg="#000033")
-        taquin_frame.pack()
+        main_frame = Frame(mainFrame, bg="#000033")
+        main_frame.pack()
 
+        taquin_init = Frame(main_frame, bg="#000033")
+        taquin_init.grid(column=0, row=0, padx=20)
+
+        taquin_fin = Frame(main_frame, bg="#000033")
+        taquin_fin.grid(column=1, row=0, padx=20)
         # the Entry of taquin game
-        #self.Entry.append(self.create_label(taquin_frame, 0, 0, 1))
-        self.Entry.append(self.create_field(taquin_frame,0,0,1))
-        self.Entry.append(self.create_field(taquin_frame, 0, 1, 2))
-        self.Entry.append(self.create_field(taquin_frame, 0, 2, 3))
-        self.Entry.append(self.create_field(taquin_frame, 1, 0, 4))
-        self.Entry.append(self.create_field(taquin_frame, 1, 1, 5))
-        self.Entry.append(self.create_field(taquin_frame, 1, 2, 6))
-        self.Entry.append(self.create_field(taquin_frame, 2, 0, 7))
-        self.Entry.append(self.create_field(taquin_frame, 2, 1, 8))
-        self.Entry.append(self.create_field(taquin_frame, 2, 2, 0, "white"))
+
+        self.render_taquin(taquin_init, "Start")
+        self.render_taquin(taquin_fin, "Goal")
 
         # some btn dope style
         style = ttk.Style()
