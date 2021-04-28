@@ -66,4 +66,4 @@ class scrollFrame:
         root.mainloop()
 
 
-x = scrollFrame()
+#x = scrollFrame()
