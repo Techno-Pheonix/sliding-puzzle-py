@@ -1,7 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-
-
+from scrollframe import *
 
 
 class Recherche_menu:
@@ -11,7 +10,11 @@ class Recherche_menu:
 
     def dfs(self, window):
         window.destroy()
-        dfs = dfs_taquin(self.taquin_init_labels)
+        x = scrollFrame()
+
+      
+      
+        
 
     def fn(self):
         LogIn = Tk()
