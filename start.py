@@ -104,7 +104,7 @@ class Taquin_etat_init:
         btn_frame = Frame(mainFrame, bg="#000033")
         btn_frame.pack(pady=20)
 
-        # the btn of randome
+        # the btn of random
         btn_rand = ttk.Button(btn_frame, text="Randomize", style="BW1.TButton",
                               command=lambda:
                               self.taquin_randomize(self.Entry))
