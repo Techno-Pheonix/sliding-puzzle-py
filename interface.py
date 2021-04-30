@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 from dfs import *
-from BFS import *
+from bfs import *
 from scrollframe import *
 
 
@@ -33,6 +33,11 @@ class interface_taquin:
     def see_detail(self, window):
         window.destroy()
         x = scrollFrame(self.rech_sequance)
+
+    def return_prev(self, window):
+        window.destroy()
+        import menu as m
+        y = m.Recherche_menu(self.values)
 
     def rendertaquin(self):
         # main taquin frame
@@ -85,4 +90,12 @@ class interface_taquin:
             btn_frame, text="start", style="BW1.TButton", command=lambda: self.start_rech())
         btn_search.grid(row=0, column=1, padx=5)
 
+        btn_search = ttk.Button(
+            btn_frame, text="return", style="BW1.TButton", command=lambda: self.return_prev(top))
+        btn_search.grid(row=0, column=2, padx=5)
+
         top.mainloop()
+
+
+# x = interface_taquin(([['1', '2', '3'], ['4', '5', '6'], ['7', '8', '0']], [
+     #                ['1', '2', '3'], ['4', '5', '6'], ['0', '7', '8']]), "bfs")

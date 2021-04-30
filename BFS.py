@@ -10,9 +10,6 @@ class bfs:
     def est_etat_final(self, first_node):
         return first_node == self.values[1]
 
-    def numero(self, x, y):
-        return self.tab[x][y]
-
     def pos_case_vid(self, first_node):
         for i in range(len(first_node)):
             for j in range(len(first_node[i])):
@@ -51,8 +48,8 @@ class bfs:
         success = False
         first_node = []
 
-        while (free_nodes != []) and not(self.est_etat_final(first_node)) and (niveux < 100):
-
+        while (free_nodes != []) and not(self.est_etat_final(first_node)) and (niveux < 300):
+            niveux += 1
             first_node = free_nodes[0]
             i = 0
             for x in self.labels:
@@ -62,8 +59,6 @@ class bfs:
                     x["fg"] = "black"
                 x["text"] = first_node[i//3][i % 3]
                 i = i+1
-            # print(first_node)
-            niveux += 1
 
             free_nodes.remove(first_node)
             closed_nodes.append(first_node)
@@ -75,16 +70,6 @@ class bfs:
                 if not(x in closed_nodes or x in free_nodes):
                     generated_states.append(x)
 
-            # for s in generated_states:
-                # if s == goal:
-                    # print("horray")
-                    #success = True
-                    #goal_node = s
-
             free_nodes.extend(generated_states)
 
-        if niveux == 7000:
-            print("Recherche non conclussive")
-        else:
-            print("Recherche finit apres", niveux, " iterations")
         return closed_nodes
