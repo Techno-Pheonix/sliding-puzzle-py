@@ -9,9 +9,9 @@ class Recherche_menu:
         self.taquin_init_labels = init_labels
         self.fn()
 
-    def dfs(self, window):
+    def search_methode(self, window, search_type):
         window.destroy()
-        x = dfs_taquin(self.taquin_init_labels)
+        x = interface_taquin(self.taquin_init_labels, search_type)
 
     def fn(self):
         LogIn = Tk()
@@ -33,14 +33,15 @@ class Recherche_menu:
                         height=20, width=30, font=("Helvetica", 16))
 
         Btn1 = ttk.Button(LogIn, text="Depth first search",
-                          style="BW1.TButton", command=lambda: self.dfs(LogIn))
+                          style="BW1.TButton", command=lambda: self.search_methode(LogIn, "dfs"))
         Btn1.pack(pady=30)
 
         Btn2 = ttk.Button(LogIn, text="Breadth first search", style="BW1.TButton",
-                          command=lambda: firstBtnClick(LogIn, "Users"))
+                          command=lambda: self.search_methode(LogIn, "bfs"))
         Btn2.pack(pady=30)
 
-        Btn3 = ttk.Button(LogIn, text="A * search", style="BW1.TButton")
+        Btn3 = ttk.Button(LogIn, text="A * search", style="BW1.TButton",
+                          command=lambda: self.search_methode(LogIn, "a*"))
         Btn3.pack(pady=30)
 
         LogIn.mainloop()

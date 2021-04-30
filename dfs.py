@@ -16,7 +16,7 @@ class dfs:
     def pos_case_vid(self, first_node):
         for i in range(len(first_node)):
             for j in range(len(first_node[i])):
-                if first_node[i][j] == 0:
+                if first_node[i][j] == "0":
                     return (i, j)
 
     def permuter(self, first_node, c1, c2):
@@ -56,9 +56,12 @@ class dfs:
             first_node = free_nodes[0]
             i = 0
             for x in self.labels:
-                for y in first_node[i]:
-                    x["text"] = first_node[i]
-                    i = i+1
+                if (first_node[i//3][i % 3] == "0"):
+                    x["fg"] = "white"
+                else:
+                    x["fg"] = "black"
+                x["text"] = first_node[i//3][i % 3]
+                i = i+1
             # print(first_node)
             niveux += 1
 

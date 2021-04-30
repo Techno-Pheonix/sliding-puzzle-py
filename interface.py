@@ -1,25 +1,38 @@
 from tkinter import *
 from tkinter import ttk
 from dfs import *
+from BFS import *
+from scrollframe import *
 
 
-class dfs_taquin:
+class interface_taquin:
 
-    def __init__(self, values):
+    def __init__(self, values, search_type):
+        self.search_type = search_type
         self.labels = []
         self.values = values
         self.rendertaquin()
+        self.rech_sequance = []
 
-    def create_label(self, frame, rowVal, colVal, val):
+    def create_label(self, frame, rowVal, colVal, val, text_col="black"):
         label = Label(frame, text=val, font=("Helvetica", 32),
-                      bg="white", fg="black", padx="40", pady="40")
+                      bg="white", fg=text_col, padx="40", pady="40")
         label.grid(row=rowVal, column=colVal, padx=3, pady=3)
         return label
 
     def start_rech(self):
-        print(self.labels)
-        x = dfs(self.labels, self.values)
-        x.recherche(self.values[0], self.values[1])
+        if (self.search_type == "dfs"):
+            x = dfs(self.labels, self.values)
+            self.rech_sequance = x.recherche(self.values[0], self.values[1])
+        elif (self.search_type == "bfs"):
+            x = bfs(self.labels, self.values)
+            self.rech_sequance = x.recherche(self.values[0], self.values[1])
+        else:
+            i = 1
+
+    def see_detail(self, window):
+        window.destroy()
+        x = scrollFrame(self.rech_sequance)
 
     def rendertaquin(self):
         # main taquin frame
@@ -45,8 +58,12 @@ class dfs_taquin:
         i = 0
         for label in self.values[0]:
             for x in label:
-                self.labels.append(self.create_label(taquin_frame, i//3, i %
-                                                     3, x))
+                if (x == "0"):
+                    self.labels.append(self.create_label(taquin_frame, i//3, i %
+                                                         3, x, "white"))
+                else:
+                    self.labels.append(self.create_label(taquin_frame, i//3, i %
+                                                         3, x))
                 i = i+1
 
         # some btn dope style
@@ -55,8 +72,17 @@ class dfs_taquin:
                         height=15, width=26, font=("Helvetica", 16))
 
         # the btn of randome
-        btn_rand = ttk.Button(mainFrame, text="Start",
-                              style="BW1.TButton", command=lambda: self.start_rech())
-        btn_rand.pack(pady=15)
+        btn_frame = Frame(mainFrame, bg="#000033")
+        btn_frame.pack(pady=20)
+
+        btn_rand = ttk.Button(btn_frame, text="Details", style="BW1.TButton",
+                              command=lambda:
+                              self.see_detail(top))
+        btn_rand.grid(row=0, column=0, padx=5)
+
+        # the btn of of search methode
+        btn_search = ttk.Button(
+            btn_frame, text="start", style="BW1.TButton", command=lambda: self.start_rech())
+        btn_search.grid(row=0, column=1, padx=5)
 
         top.mainloop()
