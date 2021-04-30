@@ -83,7 +83,6 @@ class Taquin_etat_init:
 
     def quit(self, window):
         text = self.get_label_text()
-        print(text)
         window.destroy()
         x = Recherche_menu(text)
 

@@ -58,6 +58,7 @@ class dfs:
             for x in self.labels:
                 x["text"] = first_node[i]
                 i = i+1
+            # print(first_node)
             niveux += 1
 
             free_nodes.remove(first_node)

@@ -42,12 +42,11 @@ class dfs_taquin:
 
         # the labels of taquin game
         i = 0
-        print(self.values[0])
         for label in self.values[0]:
-            print(i, label)
-            self.labels.append(self.create_label(taquin_frame, i//3, i %
-                                                 3, label))
-            i = i+1
+            for x in label:
+                self.labels.append(self.create_label(taquin_frame, i//3, i %
+                                                     3, x))
+                i = i+1
 
         # some btn dope style
         style = ttk.Style()
