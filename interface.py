@@ -32,9 +32,9 @@ class interface_taquin:
 
     def see_detail(self, window):
         window.destroy()
-        x = scrollFrame(self.rech_sequance)
+        x = scrollFrame(self.rech_sequance, self.values)
 
-    def return_prev(self, window):
+    def return_menu(self, window):
         window.destroy()
         import menu as m
         y = m.Recherche_menu(self.values)
@@ -91,11 +91,12 @@ class interface_taquin:
         btn_search.grid(row=0, column=1, padx=5)
 
         btn_search = ttk.Button(
-            btn_frame, text="return", style="BW1.TButton", command=lambda: self.return_prev(top))
+            btn_frame, text="return", style="BW1.TButton", command=lambda: self.return_menu(top))
         btn_search.grid(row=0, column=2, padx=5)
 
         top.mainloop()
 
 
 # x = interface_taquin(([['1', '2', '3'], ['4', '5', '6'], ['7', '8', '0']], [
-     #                ['1', '2', '3'], ['4', '5', '6'], ['0', '7', '8']]), "bfs")
+
+ #   ['1', '2', '3'], ['4', '5', '6'], ['0', '7', '8']]), "bfs")

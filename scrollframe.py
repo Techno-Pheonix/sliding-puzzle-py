@@ -4,7 +4,8 @@ from tkinter import ttk
 
 class scrollFrame:
 
-    def __init__(self, taquin_init_labels):
+    def __init__(self, taquin_init_labels, values):
+        self.values = values
         self.rech_sequance = taquin_init_labels
 
         self.render()
@@ -22,6 +23,11 @@ class scrollFrame:
                     self.create_label(frame, i, j, vals[i][j], "white")
                 else:
                     self.create_label(frame, i, j, vals[i][j])
+
+    def return_menu(self, window):
+        window.destroy()
+        import menu as m
+        y = m.Recherche_menu(self.values)
 
     def render(self):
         root = tk.Tk()
@@ -58,6 +64,13 @@ class scrollFrame:
             label.grid(row=4, column=1)
             i = i+1
 
+        style = ttk.Style()
+        style.configure('BW1.TButton', forground="bleu", padding=10,
+                        height=20, width=30, font=("Helvetica", 16))
+
+        Btn = ttk.Button(scrollable_frame, text="return", style="BW1.TButton",
+                         command=lambda: self.return_menu(root))
+        Btn.pack(pady=30)
         container.pack(fill=tk.BOTH, expand=True)
 
         canvas.pack(side="left", fill=tk.BOTH, expand=True)
