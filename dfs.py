@@ -13,12 +13,6 @@ class dfs:
     def numero(self, x, y):
         return self.tab[x][y]
 
-    def afficher_taquin(self, l):
-        for row in l:
-            print("-------------")
-            print("|", row[0], "|", row[1], "|", row[2], "|")
-        print("-------------")
-
     def pos_case_vid(self, first_node):
         for i in range(len(first_node)):
             for j in range(len(first_node[i])):
@@ -64,12 +58,10 @@ class dfs:
             for x in self.labels:
                 x["text"] = first_node[i]
                 i = i+1
-            # print(first_node)
             niveux += 1
 
             free_nodes.remove(first_node)
             closed_nodes.append(first_node)
-            print(self.afficher_taquin(first_node))
             gen_state = self.tansition(first_node)
 
             generated_states = []

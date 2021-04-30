@@ -1,7 +1,7 @@
 from random import randrange
 from tkinter import *
 from tkinter import ttk
-
+from copy import deepcopy
 from menu import *
 
 
@@ -59,17 +59,31 @@ class Taquin_etat_init:
     def get_label_text(self):
         text_init = []
         text_final = []
-        i = 0
+
+        i = 1
+        inter = []
+
         for label in self.entrys:
-            if (i < 9):
-                text_init.append(label.get("1.0", "end-1c"))
+            inter.append(label.get("1.0", "end-1c"))
+
+            if (i <= 9):
+                if (i % 3 == 0):
+                    l = deepcopy(inter)
+                    text_init.append(l)
+                    inter.clear()
+
             else:
-                text_final.append(label.get("1.0", "end-1c"))
+                if (i % 3 == 0):
+                    l = deepcopy(inter)
+                    text_final.append(l)
+                    inter.clear()
+
             i = i+1
         return (text_init, text_final)
 
     def quit(self, window):
         text = self.get_label_text()
+        print(text)
         window.destroy()
         x = Recherche_menu(text)
 
