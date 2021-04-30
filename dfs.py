@@ -1,21 +1,14 @@
 from copy import deepcopy
 
 
-class taquin:
-    initial_state = [[1, 2, 3], [8, 6, 0], [7, 5, 4]]
-    #final_state = [[0, 2, 7], [8, 6, 3], [1, 5, 4]]
-    final_state = [[1, 2, 3], [8, 0,  4], [7, 6, 5]]
-
-    tab = []
-
-    def __init__(self):
-        self.tab = self.initial_state
+class dfs:
+    def __init__(self, labels, values):
+        self.values = values
+        self.labels = labels
+        self.tab = self.values[0]
 
     def est_etat_final(self, first_node):
-        return first_node == self.final_state
-
-    def afficher_taquin(self):
-        print(self.tab)
+        return first_node == self.values[1]
 
     def numero(self, x, y):
         return self.tab[x][y]
@@ -65,7 +58,12 @@ class taquin:
         first_node = []
 
         while (free_nodes != []) and not(self.est_etat_final(first_node)) and (niveux < 100):
+
             first_node = free_nodes[0]
+            i = 0
+            for x in self.labels:
+                x["text"] = first_node[i]
+                i = i+1
             # print(first_node)
             niveux += 1
 
@@ -88,14 +86,9 @@ class taquin:
 
             for x in reversed(generated_states):
                 free_nodes.insert(0, x)
-            print("-----------------azezae--------------------------")
-            #free_nodes.sort(key=lambda el: (niveux+h(el, goal)))
 
         if niveux == 7000:
             print("Recherche non conclussive")
         else:
             print("Recherche finit apres", niveux, " iterations")
-
-
-x = taquin()
-x.recherche(x.tab, x.final_state)
+        return closed_nodes

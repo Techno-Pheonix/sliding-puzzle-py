@@ -65,11 +65,11 @@ class Taquin_etat_init:
                 text_init.append(label.get("1.0", "end-1c"))
             else:
                 text_final.append(label.get("1.0", "end-1c"))
+            i = i+1
         return (text_init, text_final)
 
     def quit(self, window):
         text = self.get_label_text()
-        print(text)
         window.destroy()
         x = Recherche_menu(text)
 

@@ -1,23 +1,24 @@
 from tkinter import *
 from tkinter import ttk
+from dfs import *
 
 
 class dfs_taquin:
 
-    def __init__(self, init_labels):
+    def __init__(self, values):
         self.labels = []
-        self.taquin_init_labels = init_labels
+        self.values = values
         self.rendertaquin()
 
-    def create_label(self, frame, rowVal, colVal, val, textCol="black"):
+    def create_label(self, frame, rowVal, colVal, val):
         label = Label(frame, text=val, font=("Helvetica", 32),
-                      bg="white", fg=textCol, padx="40", pady="40")
+                      bg="white", fg="black", padx="40", pady="40")
         label.grid(row=rowVal, column=colVal, padx=3, pady=3)
         return label
 
-    def quit(self, window):
-        window.destroy()
-        x = Recherche_menu(self.labels)
+    def start_rech(self):
+        x = dfs(self.labels)
+        x.recherche(self.values[0], self.values[1])
 
     def rendertaquin(self):
         # main taquin frame
@@ -41,9 +42,11 @@ class dfs_taquin:
 
         # the labels of taquin game
         i = 0
-        for label in self.taquin_init_labels:
+        print(self.values[0])
+        for label in self.values[0]:
+            print(i, label)
             self.labels.append(self.create_label(taquin_frame, i//3, i %
-                                                 3, label[0], label[1]))
+                                                 3, label))
             i = i+1
 
         # some btn dope style
@@ -52,7 +55,8 @@ class dfs_taquin:
                         height=15, width=26, font=("Helvetica", 16))
 
         # the btn of randome
-        btn_rand = ttk.Button(mainFrame, text="Start", style="BW1.TButton")
+        btn_rand = ttk.Button(mainFrame, text="Start",
+                              style="BW1.TButton", command=lambda: self.start_rech())
         btn_rand.pack(pady=15)
 
         top.mainloop()
