@@ -17,6 +17,7 @@ class dfs_taquin:
         return label
 
     def start_rech(self):
+        print(self.labels)
         x = dfs(self.labels, self.values)
         x.recherche(self.values[0], self.values[1])
 
