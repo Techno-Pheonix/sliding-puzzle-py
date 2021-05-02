@@ -9,8 +9,6 @@ class Taquin_etat_init:
 
     def __init__(self):
         self.entrys = []
-        # haffa testing something
-        self.Entry = []
 
         # end haffa
 
@@ -65,7 +63,6 @@ class Taquin_etat_init:
 
         for label in self.entrys:
             inter.append(label.get("1.0", "end-1c"))
-
             if (i <= 9):
                 if (i % 3 == 0):
                     l = deepcopy(inter)

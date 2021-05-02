@@ -3,6 +3,7 @@ from tkinter import ttk
 from dfs import *
 from bfs import *
 from scrollframe import *
+from A_StarSearch import *
 
 
 class interface_taquin:
@@ -28,7 +29,8 @@ class interface_taquin:
             x = bfs(self.labels, self.values)
             self.rech_sequance = x.recherche(self.values[0], self.values[1])
         else:
-            i = 1
+            x = a_star(self.labels, self.values)
+            self.rech_sequance = x.recherche(self.values[0], self.values[1])
 
     def see_detail(self, window):
         window.destroy()
