@@ -38,6 +38,7 @@ class interface_taquin:
                     label["text"] = "sucess"
                 else:
                     label["text"] = "echec"
+                    label["fg"] ="red"
             #x = dfs(self.labels, self.values)
             #self.rech_sequance = x.recherche(self.values[0], self.values[1])
         elif (self.search_type == "bfs"):
