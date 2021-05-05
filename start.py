@@ -3,6 +3,8 @@ from tkinter import *
 from tkinter import ttk
 from copy import deepcopy
 from menu import *
+import sys
+sys.setrecursionlimit(1500)
 
 
 class Taquin_etat_init:
