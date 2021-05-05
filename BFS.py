@@ -78,6 +78,7 @@ class bfs:
         else:
             label["text"] = "echec"
             label["fg"] = "red"
-        print("Process finished --- %s seconds ---" % (time.time() - start_time))
+        print("Process finished --- %s seconds ---" %
+              (time.time() - start_time))
 
         return closed_nodes

@@ -69,6 +69,5 @@ def dfs(node, etat):
         for w in tab:
             if w not in visited and success == False:
                 dfs(w, etat)
-            
-    print("Process finished --- %s seconds ---" % (time.time() - start_time))
 
+    print("Process finished --- %s seconds ---" % (time.time() - start_time))

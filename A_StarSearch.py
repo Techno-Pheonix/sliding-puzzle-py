@@ -1,6 +1,7 @@
 from copy import deepcopy
 import time
 
+
 class a_star:
     def __init__(self, labels, values):
         self.values = values
@@ -85,6 +86,7 @@ class a_star:
         else:
             label["text"] = "echec"
             label["fg"] = "red"
-        print("Process finished --- %s seconds ---" % (time.time() - start_time))
+        print("Process finished --- %s seconds ---" %
+              (time.time() - start_time))
 
         return closed_nodes
