@@ -9,31 +9,8 @@ class Taquin_etat_init:
 
     def __init__(self):
         self.entrys = []
-
-        # end haffa
-
         self.white_index = 8
         self.rendertaquin()
-
-    def taquin_randomize(self, Entry):
-        # possible values
-        nbrs = [1, 2, 3, 4, 5, 6, 7, 8]
-        # index of nbr
-        i = 0
-        # remove white fg from previous hidden taquin case
-        Entry[self.white_index]["fg"] = "black"
-        # create a new one hidden taquin case
-        white_label = randrange(9)
-        self.white_index = white_label
-        Entry[white_label]["fg"] = "white"
-        Entry[white_label]["text"] = "0"
-
-        for label in Entry:
-            if (label["fg"] != "white"):
-                indx = randrange(len(nbrs))
-                i = i+1
-                label["text"] = str(nbrs[indx])
-                nbrs.pop(indx)
 
     def create_label(self, frame, rowVal, colVal, val, textCol="black"):
         label = Label(frame, text=val, font=("Helvetica", 32),
@@ -123,20 +100,11 @@ class Taquin_etat_init:
         style.configure('BW1.TButton', forground="bleu", padding=10,
                         height=15, width=20, font=("Helvetica", 16))
 
-        btn_frame = Frame(mainFrame, bg="#000033")
-        btn_frame.pack(pady=20)
-
-        # the btn of random
-        btn_rand = ttk.Button(btn_frame, text="Randomize", style="BW1.TButton",
-                              command=lambda:
-                              self.taquin_randomize(self.Entry))
-        btn_rand.grid(row=0, column=0, padx=5)
-
         # the btn of of search methode
         btn_search = ttk.Button(
-            btn_frame, text="Choose search methode", style="BW1.TButton", command=lambda:
+            mainFrame, text="Choose search methode", style="BW1.TButton", command=lambda:
             self.quit(top))
-        btn_search.grid(row=0, column=1, padx=5)
+        btn_search.pack(pady=20)
 
         top.mainloop()
 
