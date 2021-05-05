@@ -7,7 +7,6 @@ class scrollFrame:
     def __init__(self, taquin_init_labels, values):
         self.values = values
         self.rech_sequance = taquin_init_labels
-
         self.render()
 
     def create_label(self, frame, rowVal, colVal, val, textCol="black"):
@@ -52,6 +51,7 @@ class scrollFrame:
             (100, 100), window=scrollable_frame, anchor="nw")
         canvas.configure(yscrollcommand=scrollbar.set)
         i = 0
+
         for x in self.rech_sequance:
             if (i % 3 == 0):
                 taquin_frame = tk.Frame(scrollable_frame, bg="#000033")
