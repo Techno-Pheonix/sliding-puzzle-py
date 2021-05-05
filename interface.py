@@ -23,8 +23,10 @@ class interface_taquin:
 
     def start_rech(self):
         if (self.search_type == "dfs"):
-            x = dfs(self.labels, self.values)
-            self.rech_sequance = x.recherche(self.values[0], self.values[1])
+            dfs(self.values[0], self.values[1])
+            self.rech_sequance = trace
+            #x = dfs(self.labels, self.values)
+            #self.rech_sequance = x.recherche(self.values[0], self.values[1])
         elif (self.search_type == "bfs"):
             x = bfs(self.labels, self.values)
             self.rech_sequance = x.recherche(self.values[0], self.values[1])
@@ -105,4 +107,4 @@ class interface_taquin:
 
 x = interface_taquin(([['1', '2', '3'], ['4', '5', '6'], ['7', '8', '0']], [
 
-    ['1', '2', '3'], ['4', '5', '6'], ['0', '7', '8']]), "bfs")
+    ['1', '2', '3'], ['4', '5', '6'], ['0', '7', '8']]), "dfs")
