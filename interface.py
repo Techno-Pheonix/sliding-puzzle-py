@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-from dfs import *
+from dfs1 import *
 from bfs import *
 from scrollframe import *
 from A_StarSearch import *
@@ -78,6 +78,10 @@ class interface_taquin:
         style.configure('BW1.TButton', forground="bleu", padding=10,
                         height=15, width=26, font=("Helvetica", 16))
 
+        label = Label(mainFrame, text="",
+                      font=("Helvetica", 32), bg="#000033", fg="white")
+        label.pack(pady=20)
+
         # the btn of randome
         btn_frame = Frame(mainFrame, bg="#000033")
         btn_frame.pack(pady=20)
@@ -99,6 +103,6 @@ class interface_taquin:
         top.mainloop()
 
 
-# x = interface_taquin(([['1', '2', '3'], ['4', '5', '6'], ['7', '8', '0']], [
+x = interface_taquin(([['1', '2', '3'], ['4', '5', '6'], ['7', '8', '0']], [
 
- #   ['1', '2', '3'], ['4', '5', '6'], ['0', '7', '8']]), "bfs")
+    ['1', '2', '3'], ['4', '5', '6'], ['0', '7', '8']]), "bfs")
