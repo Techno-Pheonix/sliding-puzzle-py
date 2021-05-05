@@ -1,4 +1,6 @@
 from copy import deepcopy
+import time
+
 
 
 class dfs:
@@ -41,6 +43,7 @@ class dfs:
         return new_pos
 
     def recherche(self, s, goal):
+        start_time = time.time()
         niveux = 0
         free_nodes = []
         free_nodes.append(s)
@@ -72,5 +75,6 @@ class dfs:
 
             for x in reversed(generated_states):
                 free_nodes.insert(0, x)
+            print("Process finished --- %s seconds ---" % (time.time() - start_time))
 
         return closed_nodes
