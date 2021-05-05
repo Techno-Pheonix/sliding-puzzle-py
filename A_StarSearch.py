@@ -48,7 +48,7 @@ class a_star:
                     nb = nb+1
         return nb
 
-    def recherche(self, s, goal):
+    def recherche(self, s, goal, label):
         niveux = 0
         free_nodes = []
         free_nodes.append(s)
@@ -79,4 +79,9 @@ class a_star:
 
             free_nodes = free_nodes + generated_states
             free_nodes.sort(key=lambda el: (niveux+self.h(el, goal)))
+        if (self.est_etat_final(first_node)):
+            label["text"] = "sucess"
+        else:
+            label["text"] = "echec"
+            label["fg"] = "red"
         return closed_nodes

@@ -40,7 +40,7 @@ class bfs:
 
         return new_pos
 
-    def recherche(self, s, goal):
+    def recherche(self, s, goal, label):
         niveux = 0
         free_nodes = []
         free_nodes.append(s)
@@ -71,5 +71,9 @@ class bfs:
                     generated_states.append(x)
 
             free_nodes.extend(generated_states)
-
+        if (self.est_etat_final(first_node)):
+            label["text"] = "sucess"
+        else:
+            label["text"] = "echec"
+            label["fg"] = "red"
         return closed_nodes
