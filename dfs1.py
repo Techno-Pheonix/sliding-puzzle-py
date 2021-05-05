@@ -56,12 +56,11 @@ success = False
 
 
 def dfs(node, etat):
-
+    start_time = time.time()
     n = 0
     global success
-    if (success == False and node not in visited and n < 100):
+    if (success == False and node not in visited and n < 1000):
         n += 1
-
         trace.append(node)
         if estEtatFinal(node, etat):
             success = True

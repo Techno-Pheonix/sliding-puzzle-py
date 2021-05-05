@@ -50,7 +50,7 @@ class bfs:
         success = False
         first_node = []
 
-        while (free_nodes != []) and not(self.est_etat_final(first_node)) and (niveux < 999):
+        while (free_nodes != []) and not(self.est_etat_final(first_node)) and (niveux < 1000):
             niveux += 1
             first_node = free_nodes[0]
             i = 0
@@ -78,6 +78,7 @@ class bfs:
         else:
             label["text"] = "echec"
             label["fg"] = "red"
-        print("Process finished --- %s seconds ---" % (time.time() - start_time))
+        print("Process finished --- %s seconds ---" %
+              (time.time() - start_time))
 
         return closed_nodes

@@ -38,7 +38,7 @@ class interface_taquin:
                     label["text"] = "sucess"
                 else:
                     label["text"] = "echec"
-                    label["fg"] ="red"
+                    label["fg"] = "red"
             #x = dfs(self.labels, self.values)
             #self.rech_sequance = x.recherche(self.values[0], self.values[1])
         elif (self.search_type == "bfs"):
@@ -71,11 +71,16 @@ class interface_taquin:
         mainFrame.place(relx=.5, rely=.5, anchor="c")
 
         # hello text
-        label = Label(mainFrame, text="Deapth first search",
+        label = Label(mainFrame, text="",
                       font=("Helvetica", 32), bg="#000033", fg="white")
         label.pack(pady=20)
-
-        # the frame which contains the grid of taquin
+        if (self.search_type == "dfs"):
+            label["text"] = "Depth-first search"
+        elif (self.search_type == "bfs"):
+            label["text"] = "Breadth-first search"
+        else:
+            label["text"] = "A star search"
+            # the frame which contains the grid of taquin
         taquin_frame = Frame(mainFrame, bg="#000033")
         taquin_frame.pack()
 
