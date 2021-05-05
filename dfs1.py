@@ -1,4 +1,5 @@
 from copy import deepcopy
+import time
 
 
 def estEtatFinal(t, etat_final):
@@ -55,8 +56,11 @@ success = False
 
 
 def dfs(node, etat):
+    start_time = time.time()
+    n = 0
     global success
-    if (success == False and node not in visited):
+    if (success == False and node not in visited and n<300):
+        n=n+1
         trace.append(node)
         if estEtatFinal(node, etat):
             success = True
@@ -65,3 +69,6 @@ def dfs(node, etat):
         for w in tab:
             if w not in visited and success == False:
                 dfs(w, etat)
+            
+    print("Process finished --- %s seconds ---" % (time.time() - start_time))
+

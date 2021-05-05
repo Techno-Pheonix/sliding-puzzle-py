@@ -1,4 +1,5 @@
 from copy import deepcopy
+import time
 
 
 class bfs:
@@ -41,6 +42,7 @@ class bfs:
         return new_pos
 
     def recherche(self, s, goal, label):
+        start_time = time.time()
         niveux = 0
         free_nodes = []
         free_nodes.append(s)
@@ -48,7 +50,7 @@ class bfs:
         success = False
         first_node = []
 
-        while (free_nodes != []) and not(self.est_etat_final(first_node)) and (niveux < 100):
+        while (free_nodes != []) and not(self.est_etat_final(first_node)) and (niveux < 999):
             niveux += 1
             first_node = free_nodes[0]
             i = 0
@@ -76,4 +78,6 @@ class bfs:
         else:
             label["text"] = "echec"
             label["fg"] = "red"
+        print("Process finished --- %s seconds ---" % (time.time() - start_time))
+
         return closed_nodes

@@ -1,5 +1,5 @@
 from copy import deepcopy
-
+import time
 
 class a_star:
     def __init__(self, labels, values):
@@ -49,13 +49,14 @@ class a_star:
         return nb
 
     def recherche(self, s, goal, label):
+        start_time = time.time()
         niveux = 0
         free_nodes = []
         free_nodes.append(s)
         closed_nodes = []
         success = False
         first_node = []
-        while (free_nodes != []) and not(self.est_etat_final(first_node)) and (niveux < 100):
+        while (free_nodes != []) and not(self.est_etat_final(first_node)) and (niveux < 999):
             first_node = free_nodes[0]
             i = 0
             for x in self.labels:
@@ -84,4 +85,6 @@ class a_star:
         else:
             label["text"] = "echec"
             label["fg"] = "red"
+        print("Process finished --- %s seconds ---" % (time.time() - start_time))
+
         return closed_nodes
