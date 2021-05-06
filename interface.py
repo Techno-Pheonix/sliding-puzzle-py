@@ -21,9 +21,9 @@ class interface_taquin:
         label.grid(row=rowVal, column=colVal, padx=3, pady=3)
         return label
 
-    def start_rech(self, label):
+    def start_rech(self, label, label_1):
         if (self.search_type == "dfs"):
-            dfs(self.values[0], self.values[1])
+            dfs(self.values[0], self.values[1], label_1)
             self.rech_sequance = trace
             for j in trace:
                 i = 0
@@ -44,11 +44,11 @@ class interface_taquin:
         elif (self.search_type == "bfs"):
             x = bfs(self.labels, self.values)
             self.rech_sequance = x.recherche(
-                self.values[0], self.values[1], label)
+                self.values[0], self.values[1], label, label_1)
         else:
             x = a_star(self.labels, self.values)
             self.rech_sequance = x.recherche(
-                self.values[0], self.values[1], label)
+                self.values[0], self.values[1], label, label_1)
 
     def see_detail(self, window):
         window.destroy()
@@ -105,6 +105,10 @@ class interface_taquin:
                       font=("Helvetica", 32), bg="#000033", fg="white")
         label.pack(pady=20)
 
+        label_1 = Label(mainFrame, text="",
+                        font=("Helvetica", 32), bg="#000033", fg="white")
+        label_1.pack(pady=20)
+
         # the btn of randome
         btn_frame = Frame(mainFrame, bg="#000033")
         btn_frame.pack(pady=20)
@@ -116,7 +120,7 @@ class interface_taquin:
 
         # the btn of of search methode
         btn_search = ttk.Button(
-            btn_frame, text="start", style="BW1.TButton", command=lambda: self.start_rech(label))
+            btn_frame, text="start", style="BW1.TButton", command=lambda: self.start_rech(label, label_1))
         btn_search.grid(row=0, column=1, padx=5)
 
         btn_search = ttk.Button(

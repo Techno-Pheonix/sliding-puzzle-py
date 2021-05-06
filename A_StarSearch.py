@@ -49,7 +49,7 @@ class a_star:
                     nb = nb+1
         return nb
 
-    def recherche(self, s, goal, label):
+    def recherche(self, s, goal, label, label_1):
         start_time = time.time()
         niveux = 0
         free_nodes = []
@@ -88,5 +88,5 @@ class a_star:
             label["fg"] = "red"
         print("Process finished --- %s seconds ---" %
               (time.time() - start_time))
-
+        label_1["text"] = time.time() - start_time
         return closed_nodes

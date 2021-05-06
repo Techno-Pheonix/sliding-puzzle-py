@@ -41,7 +41,7 @@ class bfs:
 
         return new_pos
 
-    def recherche(self, s, goal, label):
+    def recherche(self, s, goal, label, label_1):
         start_time = time.time()
         niveux = 0
         free_nodes = []
@@ -78,7 +78,8 @@ class bfs:
         else:
             label["text"] = "echec"
             label["fg"] = "red"
+
         print("Process finished --- %s seconds ---" %
               (time.time() - start_time))
-
+        label_1["text"] = time.time() - start_time
         return closed_nodes

@@ -55,7 +55,7 @@ visited = []
 success = False
 
 
-def dfs(node, etat):
+def dfs(node, etat, label_1):
     start_time = time.time()
     n = 0
     global success
@@ -70,5 +70,5 @@ def dfs(node, etat):
         for w in tab:
             if w not in visited and success == False:
                 dfs(w, etat)
-
+    label_1["text"] = time.time() - start_time
     print("Process finished --- %s seconds ---" % (time.time() - start_time))
