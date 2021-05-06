@@ -74,9 +74,9 @@ class bfs:
 
             free_nodes.extend(generated_states)
         if (self.est_etat_final(first_node)):
-            label["text"] = "sucess"
+            label["text"] = "Sucess"
         else:
-            label["text"] = "echec"
+            label["text"] = "Failure"
             label["fg"] = "red"
 
         print("Process finished --- %s seconds ---" %

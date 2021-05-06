@@ -82,9 +82,9 @@ class a_star:
             free_nodes = free_nodes + generated_states
             free_nodes.sort(key=lambda el: (niveux+self.h(el, goal)))
         if (self.est_etat_final(first_node)):
-            label["text"] = "sucess"
+            label["text"] = "Sucess"
         else:
-            label["text"] = "echec"
+            label["text"] = "Failure"
             label["fg"] = "red"
         print("Process finished --- %s seconds ---" %
               (time.time() - start_time))
