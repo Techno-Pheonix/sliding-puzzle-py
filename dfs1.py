@@ -60,7 +60,7 @@ def dfs(node, etat, label_1):
     n = 0
     global success
 
-    if (success == False and node not in visited and n < 1000):
+    if (success == False and node not in visited and n < 100):
         n = n+1
         trace.append(node)
         if estEtatFinal(node, etat):
@@ -69,6 +69,6 @@ def dfs(node, etat, label_1):
         tab = transitions(node)
         for w in tab:
             if w not in visited and success == False:
-                dfs(w, etat)
+                dfs(w, etat, label_1)
     label_1["text"] = time.time() - start_time
     print("Process finished --- %s seconds ---" % (time.time() - start_time))
