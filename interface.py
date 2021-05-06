@@ -35,9 +35,9 @@ class interface_taquin:
                     x["text"] = j[i//3][i % 3]
                     i = i+1
                 if (estEtatFinal(j,  self.values[1])):
-                    label["text"] = "sucess"
+                    label["text"] = "Sucess"
                 else:
-                    label["text"] = "echec"
+                    label["text"] = "Failure"
                     label["fg"] = "red"
             #x = dfs(self.labels, self.values)
             #self.rech_sequance = x.recherche(self.values[0], self.values[1])
