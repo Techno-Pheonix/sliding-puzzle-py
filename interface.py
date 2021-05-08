@@ -35,7 +35,8 @@ class interface_taquin:
                     x["text"] = j[i//3][i % 3]
                     i = i+1
                 if (estEtatFinal(j,  self.values[1])):
-                    label["text"] = "Sucess"
+                    label["text"] = "Success"
+                    label["fg"] = "white"
                 else:
                     label["text"] = "Failure"
                     label["fg"] = "red"
@@ -102,12 +103,12 @@ class interface_taquin:
                         height=15, width=26, font=("Helvetica", 16))
 
         label = Label(mainFrame, text="",
-                      font=("Helvetica", 32), bg="#000033", fg="white")
-        label.pack(pady=20)
+                      font=("Helvetica", 16), bg="#000033", fg="white")
+        label.pack(pady=10)
 
         label_1 = Label(mainFrame, text="",
-                        font=("Helvetica", 32), bg="#000033", fg="white")
-        label_1.pack(pady=20)
+                        font=("Helvetica", 16), bg="#000033", fg="white")
+        label_1.pack(pady=10)
 
         # the btn of randome
         btn_frame = Frame(mainFrame, bg="#000033")
@@ -130,7 +131,7 @@ class interface_taquin:
         top.mainloop()
 
 
-"""x = interface_taquin(([['1', '2', '3'], ['4', '5', '6'], ['7', '8', '0']], [
+x = interface_taquin(([['1', '2', '3'], ['4', '5', '6'], ['7', '8', '0']], [
 
    
-['1', '2', '3'], ['4', '5', '6'], ['0', '7', '8']]), "bfs")"""
+['1', '2', '3'], ['4', '5', '6'], ['0', '7', '8']]), "bfs")

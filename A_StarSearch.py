@@ -82,7 +82,8 @@ class a_star:
             free_nodes = free_nodes + generated_states
             free_nodes.sort(key=lambda el: (niveux+self.h(el, goal)))
         if (self.est_etat_final(first_node)):
-            label["text"] = "Sucess"
+            label["text"] = "Success"
+            label["fg"] = "white"
         else:
             label["text"] = "Failure"
             label["fg"] = "red"

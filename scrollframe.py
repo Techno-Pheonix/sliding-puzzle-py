@@ -48,7 +48,7 @@ class scrollFrame:
         )
 
         canvas.create_window(
-            (450, 100), window=scrollable_frame, anchor="nw")
+            (100, 100), window=scrollable_frame, anchor="nw")
         canvas.configure(yscrollcommand=scrollbar.set)
         i = 0
 
